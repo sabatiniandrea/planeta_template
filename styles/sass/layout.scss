@@ -1,0 +1,15 @@
+.layout__grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content calc(100vh - var(--header-height) - var(--grid-row-gap)) repeat(5, min-content);
+    grid-column-gap: 10px;
+    grid-row-gap: var(--grid-row-gap);
+    @media (max-width: 700px) {
+        grid-row-gap: var(--grid-row-gap-med);
+    }
+
+    & > :last-child {
+        margin-bottom: -40px; /* Rimuove il gap per la prima riga */
+    }
+}
