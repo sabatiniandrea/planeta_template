@@ -9,6 +9,10 @@
         grid-row-gap: var(--grid-row-gap-med);
     }
 
+    @media (max-width: 600px) {
+        grid-row-gap: var(--grid-row-gap-small);
+    }
+
     & > :last-child {
         margin-bottom: -40px; /* Rimuove il gap per la prima riga */
     }

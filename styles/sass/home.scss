@@ -1,9 +1,25 @@
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 100,
+    'GRAD' 0,
+    'opsz' 24;
+    font-size: 40px;
+
+    @media (max-width: 600px) {
+        font-size: 30px;
+    }
+  }
+
 header {
     grid-column: 1 / span 4;
     grid-row: 1/2;
     display: flex;
     padding: 0px 5px;
     height: var(--header-height);
+    @media (max-width: 600px) {
+        height: var(--header-height-mobile);
+    }
     border-bottom: 1px solid $color-white;
 
     background-color: $color-black;
@@ -23,6 +39,24 @@ header {
         display: inline-block;
         a {text-transform: uppercase;}
     }
+
+    .header__item-desktop {
+        @media (max-width: 600px) {
+            display: none;
+        }
+    }
+
+    .header__item-mobile {
+        @media (min-width: 600px) {
+            display: none;
+        }
+    }
+
+    .header__cta {
+        padding: 8px 12px;
+        background-color: $color-white;
+        a {color: $color-black; font-weight: 500;}
+    }
 }
 
 section {
@@ -36,11 +70,12 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     p {
-        width: 70%;
+        width: 50%;
         font-size: 14px;
         text-align: center;
-        margin-top: 30px;
+        //margin-top: 30px;
         @media (max-width: 700px) {
             width: 90%;
             font-size: 14px;
@@ -52,39 +87,40 @@ section {
         font-size: 54px;
 
         span {
-            font-family: "PT Serif", serif;
-  font-weight: 400;
+            font-family: "quiche-stencil", sans-serif;
+            font-weight: 400;
         }
 
         @media (max-width: 700px) {
             width: 100%;
             font-size: 42px;
         }
+
+        @media (max-width: 600px) {
+            width: 100%;
+            font-size: 28px;
+        }
     }
 
     &__icon {
-        padding: 20px;
-        border-radius: 20px;
+        padding: 18px 20px;
+        @media (max-width: 600px) {
+            padding: 15px 16px;
+        }
+        margin: 10px;
+        overflow: hidden;
+        border-radius: 50px;
         border: 1px solid $color-white;
-
-        .material-symbols-outlined {
-            font-variation-settings:
-            'FILL' 0,
-            'wght' 100,
-            'GRAD' 0,
-            'opsz' 24;
-            font-size: 40px;
-          }
     }
 }
 
 .hero-section > *:not(:last-child) {
     margin-bottom: 60px;
+    @media (max-width: 600px) {
+        margin-bottom: 40px;
+    }
 }
 
-.highlight {
-    font-style: italic;
-}
 .higlight__yellow {color: var(--primary-yellow);}
 .higlight__pink {color: var(--primary-pink);}
 
@@ -99,13 +135,20 @@ section {
         flex-direction: row;
         align-items: center;
         margin-bottom: 30px;
+        @media (max-width: 600px) {
+            margin-bottom: 20px;
+        }
         & > *:not(:last-child) {
             margin-right: 10px;
         }
         &__h2 {
             font-weight: 500;
             font-size: 24px;
+            max-width: 80%;
             text-transform: uppercase;
+            @media (max-width: 600px) {
+                font-size: 21px;
+            }
         }
     }
 
@@ -118,9 +161,12 @@ section {
         font-size: 16px;
         text-transform: uppercase;
         width: 100%;
+        @media (min-width: 1700px) {
+            width: 75%;
+        }
         margin-bottom: 20px;
     }
-    &__paragrapp {
+    &__paragraph {
         width: 60%;
         font-weight: 300;
         @media (max-width: 800px) {
@@ -170,9 +216,13 @@ section {
                     span {
                         font-size: 24px;
                         font-weight: 400;
+                        @media (max-width: 600px) {
+                            font-size: 21px;
+                        }
                     }
                     p {
                         font-size: 16px;
+                        margin-top: 4px;
                         font-weight: 200;
                     }
                 }
@@ -190,22 +240,30 @@ section {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 40px;
+    margin-bottom: 30px;
     @media (max-width: 1000px) {
         grid-template-columns: repeat(2, 1fr);
-        grid-row-gap: 30px;
+        grid-row-gap: 40px;
     }
     @media (max-width: 600px) {
         grid-template-columns: repeat(1, 1fr);
-        grid-row-gap: 30px;
+        grid-row-gap: 50px;
     }
-    grid-column-gap: 10px;
-    grid-row-gap: 0px;
-    margin-bottom: 30px;
+    & > :last-child {
+        @media (max-width: 600px) {
+            grid-column: 1 / 2;
+        }
+    }
     .exhibitions__items {
         width: 100%;
         figure {
             width: 100%;
             height: 375px;
+            @media (max-width: 600px) {
+                height: 40vh;
+            }
             overflow: hidden;
             margin-bottom: 14px;
             border: 1px solid $color-white;
@@ -219,9 +277,7 @@ section {
 
         figure:hover {
             img {
-                width: 105%;
-                height: 105%;
-                object-fit: cover;
+                transform: scale(1.05);
             }
         }
         &__info-container {display: flex; justify-content: space-between; width: 95%; 
@@ -279,7 +335,7 @@ section {
                 align-items: start;
                 .slider__item__date {font-size: 14; font-weight: 300;}
                 .slider__item__separator {width: 60%; height: 1px; background-color: $color-white;}
-                .slider__item__title {font-size: 18px; font-weight: 500;}
+                .slider__item__title {font-size: 18px; font-weight: 500; max-width: 70%;}
                 .slider__item__description {font-size: 14px; font-weight: 400;}
             }
 
@@ -296,8 +352,12 @@ section {
     text-transform: uppercase;
     border: $color-white 1px solid;
     padding: 14px 20px;
+    @media (max-width: 600px) {
+        padding: 10px 16px;
+    }
     width: auto;
-    color: $color-white;
+    color: $color-black;
+    background-color: $color-white;
     margin-top: 8px;
     font-family: "Montserrat", sans-serif;
     transition: all 0.4s ease-in-out ;

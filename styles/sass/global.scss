@@ -11,8 +11,8 @@ body {
     font-size: 16px;
     font-family: "Montserrat", sans-serif;
     padding: 0 80px;
-    @media (max-width: 700px) {
-        padding: 0 60px;
+    @media (max-width: 600px) {
+        padding: 0 30px;
     }
     //font-weight: ;
     //overflow-x: hidden;
@@ -54,6 +54,8 @@ a {
 
     --line: 1px solid #fff;
     --header-height: 90px;
+    --header-height-mobile: 80px;
     --grid-row-gap: 100px;
     --grid-row-gap-med: 80px;
+    --grid-row-gap-small: 60px;
 }
