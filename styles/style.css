@@ -612,7 +612,7 @@ section {
 }
 @media (max-width: 600px) {
   .exhibitions__container .exhibitions__items figure {
-    height: 40vh;
+    height: 50vh;
   }
 }
 .exhibitions__container .exhibitions__items figure img {
