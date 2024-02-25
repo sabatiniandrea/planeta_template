@@ -131,6 +131,19 @@ table {
   border-spacing: 0;
 }
 
+:root {
+  --primary-yellow: #FBDA61;
+  --primary-pink: #FF5ACD;
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .4);
+  --shadow-light: 0 1rem 3rem rgba(0, 0, 0, .1);
+  --line: 1px solid #fff;
+  --header-height: 90px;
+  --header-height-mobile: 80px;
+  --grid-row-gap: 100px;
+  --grid-row-gap-med: 80px;
+  --grid-row-gap-small: 60px;
+}
+
 strong {
   font-weight: bold;
 }
@@ -171,43 +184,13 @@ a {
   border-color: #fff;
 }
 
-:root {
-  --primary-yellow: #FBDA61;
-  --primary-pink: #FF5ACD;
-  --grey-light-1: #faf9f9;
-  --grey-light-2: #f4f2f2;
-  --grey-light-3: #f0eeee;
-  --grey-light-4: #ccc;
-  --grey-dark-1: #333;
-  --grey-dark-2: #777;
-  --grey-dark-3: #999;
-  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .4);
-  --shadow-light: 0 1rem 3rem rgba(0, 0, 0, .1);
-  --line: 1px solid #fff;
-  --header-height: 90px;
-  --header-height-mobile: 80px;
-  --grid-row-gap: 100px;
-  --grid-row-gap-med: 80px;
-  --grid-row-gap-small: 60px;
-}
-
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 100, "GRAD" 0, "opsz" 24;
-  font-size: 40px;
-}
-@media (max-width: 600px) {
-  .material-symbols-outlined {
-    font-size: 30px;
-  }
-}
-
 header {
   grid-column: 1/span 4;
   grid-row: 1/2;
   display: flex;
   padding: 0px 5px;
   height: var(--header-height);
-  border-bottom: 1px solid #fff;
+  border-bottom: var(--line);
   z-index: 2;
   background-color: #101010;
   position: sticky;
@@ -252,6 +235,7 @@ header .header__cta a {
   font-weight: 500;
 }
 
+/* EFFETTO link hover*/
 .link {
   cursor: pointer;
   position: relative;
@@ -301,6 +285,101 @@ header .header__cta a {
   transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
 }
 
+a:focus,
+button:focus {
+  /* Provide a fallback style for browsers
+   that don't support :focus-visible */
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  /* Draw a very noticeable focus style for
+   keyboard-focus on browsers that do support
+   :focus-visible */
+  outline: 2px solid #443ffc;
+  outline-offset: 3px;
+}
+
+.button {
+  pointer-events: auto;
+  cursor: pointer;
+  border: none;
+  padding: 1.5rem 3rem;
+  position: relative;
+  display: inline-block;
+}
+.button span {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease-in;
+}
+.button:hover span {
+  color: #fff;
+}
+
+.button::before,
+.button::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.button--fenrir {
+  background: none;
+  padding: 0;
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  width: 120px;
+  height: 120px;
+}
+
+.progress {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.button--fenrir:hover .progress {
+  transform: scale3d(1.2, 1.2, 1);
+}
+
+.progress__circle,
+.progress__path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.6);
+  stroke-width: 1px;
+}
+
+.button--fenrir:focus-visible .progress__circle {
+  fill: var(--primary-yellow);
+}
+
+.progress__path {
+  stroke: var(--primary-yellow);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.button--fenrir:hover .progress__path {
+  stroke-dashoffset: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 100, "GRAD" 0, "opsz" 24;
+  font-size: 40px;
+}
+@media (max-width: 600px) {
+  .material-symbols-outlined {
+    font-size: 30px;
+  }
+}
+
 section {
   grid-column: 1/span 4;
 }
@@ -348,7 +427,7 @@ section {
   margin: 10px;
   overflow: hidden;
   border-radius: 50px;
-  border: 1px solid #fff;
+  border: var(--line);
 }
 @media (max-width: 600px) {
   .hero-section__icon {
@@ -666,6 +745,7 @@ section {
   margin-bottom: 20px;
 }
 
+/*LAYOUT PER LA PAGINA INDEX*/
 .layout__grid {
   display: grid;
   width: 100%;
@@ -685,7 +765,7 @@ section {
   }
 }
 .layout__grid > :last-child {
-  margin-bottom: -40px; /* Rimuove il gap per la prima riga */
+  margin-bottom: -40px;
 }
 
 /*# sourceMappingURL=style.css.map */

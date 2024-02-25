@@ -11,106 +11,6 @@
     }
   }
 
-header {
-    grid-column: 1 / span 4;
-    grid-row: 1/2;
-    display: flex;
-    padding: 0px 5px;
-    height: var(--header-height);
-    @media (max-width: 600px) {
-        height: var(--header-height-mobile);
-    }
-    border-bottom: 1px solid $color-white;
-
-    z-index: 2;
-    background-color: $color-black;
-    position: sticky;
-    top: 0;
-    left: 80px;
-    font-size: 14px;
-    //margin-bottom: 140px;
-    ul {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .header__item {
-        display: inline-block;
-        a {text-transform: uppercase;}
-    }
-
-    .header__item-desktop {
-        @media (max-width: 600px) {
-            display: none;
-        }
-    }
-
-    .header__item-mobile {
-        @media (min-width: 600px) {
-            display: none;
-        }
-    }
-
-    .header__cta {
-        padding: 8px 12px;
-        background-color: $color-white;
-        a {color: $color-black; font-weight: 500;}
-    }
-}
-
-.link {
-    cursor: pointer;
-    //font-size: 18px;
-    position: relative;
-    white-space: nowrap;
-    color: $color-white;
-}
-
-
-.link::before,
-.link::after {
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background: currentColor;
-    top: 100%;
-    left: 0;
-    pointer-events: none;
-}
-
-.link::before {
-    content: '';
-    /* show by default */
-}
-
-.link--io::before {
-    transform-origin: 100% 50%;
-    transform: scale3d(0, 1, 1);
-    transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
-}
-
-.link--io:hover::before {
-    transform-origin: 0% 50%;
-    transform: scale3d(1, 1, 1);
-    transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
-}
-
-.link--io::after {
-    content: '';
-    top: calc(100% + 4px);
-    transform-origin: 0% 50%;
-    transform: scale3d(0, 1, 1);
-    transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
-}
-
-.link--io:hover::after {
-    transform-origin: 100% 50%;
-    transform: scale3d(1, 1, 1);
-    transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
-}
-
 section {
     grid-column: 1/ span 4;
 }
@@ -162,7 +62,7 @@ section {
         margin: 10px;
         overflow: hidden;
         border-radius: 50px;
-        border: 1px solid $color-white;
+        border: var(--line);
     }
 }
 

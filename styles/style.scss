@@ -1,8 +1,10 @@
 @import "sass/reset.scss";
 @import "sass/font.scss";
+@import "sass/variables.scss";
 @import "sass/global.scss";
+@import "sass/components/header.scss";
+@import "sass/components/hero_button.scss";
 @import "sass/home.scss";
 @import "sass/single.scss";
 @import "sass/blog.scss";
-@import "sass/variables.scss";
 @import "sass/layout.scss";
